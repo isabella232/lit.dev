@@ -1,0 +1,30 @@
+.landing-4-simplicity {
+  background: #eaeaea;
+  display: flex;
+  justify-content: center;
+  padding-top: 180px;
+}
+
+.landing-4-simplicity-prose {
+  width: 50%;
+  max-width: 800px;
+}
+
+.landing-4-simplicity h3 {
+  margin-bottom: 40px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.landing-4-simplicity p {
+  font-size: 28px;
+  line-height: 2em;
+}
+
+.landing-4-simplicity p:last-of-type {
+  color: #324fff;
+}
+
+.landing-4-simplicity .landing-example {
+  margin: 0 50px 180px 112px;
+}

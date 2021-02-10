@@ -1,0 +1,29 @@
+.landing-1-splash {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 120px;
+}
+
+.landing-1-splash-content {
+  max-width: calc(var(--landing-max-width) / 2);
+}
+
+.landing-1-splash-logo {
+  margin-bottom: 54px;
+}
+
+.landing-1-splash-logo .logo-flame {
+  margin-right: 32px;
+}
+
+.landing-1-splash .landing-section-heading {
+  border-top: 2px solid #324fff;
+}
+
+.landing-1-splash-text {
+  font-size: 26px;
+  line-height: 1.7em;
+  color: black;
+  margin-bottom: 90px;
+}

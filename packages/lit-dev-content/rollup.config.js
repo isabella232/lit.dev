@@ -43,6 +43,14 @@ export default [
     plugins: [resolve(), terser(terserOptions), summary()],
   },
   {
+    input: 'lib/landing.js',
+    output: {
+      file: 'site/_includes/js/landing.js',
+      format: 'esm',
+    },
+    plugins: [resolve(), terser(terserOptions), summary()],
+  },
+  {
     input: 'lib/playground.js',
     output: {
       file: 'site/_includes/js/playground.js',

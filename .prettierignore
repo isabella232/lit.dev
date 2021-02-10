@@ -1,6 +1,7 @@
 node_modules/
 package-lock.json
-/packages/lit-dev-content/site/
+/packages/lit-dev-content/site/**/*.md
+/packages/lit-dev-content/site/**/*.html
 /packages/lit-dev-content/_site/
 /packages/*/lib/
 /packages/*/index.*

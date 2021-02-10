@@ -1,0 +1,36 @@
+.landing-5-build {
+  max-width: var(--landing-max-width);
+  margin: auto;
+  padding: 0 50px;
+  margin-bottom: 100px;
+}
+
+.landing-5-build .landing-section-heading {
+  margin-bottom: 116.5px;
+}
+
+.landing-5-build h4 {
+  color: #324fff;
+  font-size: 45px;
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+.landing-5-build p {
+  font-size: 28px;
+}
+
+.landing-5-build-sections {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-auto-rows: auto;
+  align-items: center;
+  justify-items: start;
+  gap: 135px 159px;
+}
+
+.landing-5-build-sections .landing-bold-link {
+  display: inline-block;
+  margin-top: 50px;
+}

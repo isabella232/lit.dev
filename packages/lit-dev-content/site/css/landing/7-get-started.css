@@ -1,0 +1,26 @@
+.landing-7-get-started {
+  max-width: var(--landing-max-width);
+  padding: 0 48px;
+  margin: auto;
+}
+
+.landing-7-get-started-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 140px;
+  justify-content: space-between;
+}
+
+.landing-7-get-started-items div {
+  max-width: 480px;
+}
+
+.landing-7-get-started-items div:last-child {
+  margin-right: 0;
+}
+
+.landing-7-get-started h4 {
+  color: #324fff;
+  font-size: 36px;
+  font-weight: 500;
+}

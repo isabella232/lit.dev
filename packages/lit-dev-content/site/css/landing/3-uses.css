@@ -1,0 +1,120 @@
+.landing-3-uses h2 {
+  font-size: 45px;
+}
+
+.landing-3-uses {
+  background: black;
+  color: white;
+  padding: 100px 0;
+  position: relative;
+}
+
+.landing-3-uses .heading {
+  border-bottom: 2px solid #3456f5;
+}
+
+.landing-3-uses .heading p {
+  font-size: 36px;
+}
+
+.landing-3-uses h3 {
+  color: #91ffff;
+  font-size: 45px;
+}
+
+.landing-3-uses .content > p {
+  font-size: 28px;
+}
+
+.landing-3-uses .divider {
+  border-bottom: 2px solid #3456f5;
+}
+
+.landing-3-uses .art:before {
+  background-color: blue;
+  opacity: 50%;
+  height: 160px;
+  width: 80px;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+  content: '';
+  /* Behind art */
+  z-index: -1;
+}
+
+.landing-3-uses .art:after {
+  background-color: white;
+  opacity: 10%;
+  height: 160px;
+  width: 80px;
+  position: absolute;
+  margin-left: -109px;
+  margin-top: 30px;
+  content: '';
+  /* Behind art */
+  z-index: -1;
+}
+
+@media (min-width: 1000px) {
+  .landing-3-uses {
+    display: flex;
+  }
+
+  .landing-3-uses .content {
+    display: grid;
+    grid-template-columns: 1fr 218px 280px minmax(250px, 400px) 1fr;
+    gap: 100px 100px;
+    max-width: var(--landing-max-width);
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+  }
+
+  .landing-3-uses .heading {
+    grid-column-start: 3;
+    grid-column-end: 6;
+  }
+
+  .landing-3-uses .art {
+    grid-column-start: 2;
+    /* Above blue speckle background */
+    z-index: 0;
+  }
+
+  .landing-3-uses .divider {
+    border-color: white;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    /* Above blue speckle background */
+    z-index: 0;
+  }
+
+  .landing-3-uses br {
+    display: none;
+  }
+
+  .landing-3-uses .blueblock,
+  .landing-3-uses .speckles {
+    height: 100%;
+    width: 258px;
+    top: 0;
+    position: absolute;
+  }
+
+  .landing-3-uses .blueblock {
+    background: #2542ff;
+  }
+}
+
+/* TODO(aomarks) This min-width is found empirically and is sensitive to a bunch
+ * of other parameters. Factor out those parameters to variables so that we're
+ * not brittle. */
+@media (min-width: 1398px) {
+  .landing-3-uses .blueblock,
+  .landing-3-uses .speckles {
+    width: calc(50% - 440px);
+  }
+}

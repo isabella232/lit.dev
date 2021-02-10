@@ -1,0 +1,29 @@
+.landing-6-who-uses {
+  background: #f4f4f4;
+  color: #b9b9b9;
+  padding-top: 120px;
+}
+
+.landing-6-who-uses-logos {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: var(--landing-max-width);
+  margin-bottom: 60px;
+}
+
+.landing-6-who-uses-logos > * {
+  height: 42px;
+  width: 140px;
+  margin: 0 20px 30px 20px;
+}
+
+.landing-6-who-uses p {
+  color: #324fff;
+  font-size: 31px;
+  text-align: center;
+  font-weight: 500;
+  padding-bottom: 140px;
+}

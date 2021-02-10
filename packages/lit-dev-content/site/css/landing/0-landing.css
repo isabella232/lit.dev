@@ -1,0 +1,138 @@
+@import url('./1-splash.css');
+@import url('./2-example.css');
+@import url('./3-uses.css');
+@import url('./4-simplicity.css');
+@import url('./5-build.css');
+@import url('./6-who-uses.css');
+@import url('./7-get-started.css');
+@import url('./8-connect.css');
+
+body {
+  --landing-max-width: 1500px;
+  --landing-side-margin: 100px;
+  --header-footer-max-width: 1800px;
+}
+
+.landing-1-and-2 {
+  display: flex;
+}
+
+/* Fading lit-logo (see landing.js) */
+
+.menu-button-and-logo {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+body.splash-logo-scrolled .menu-button-and-logo {
+  opacity: 1;
+}
+
+/* "Speckly" texture applied on top of some backgrounds */
+
+.speckles {
+  background: url('/images/texture-white.png');
+  opacity: 30%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Bold uppercase links */
+
+.landing-bold-link {
+  text-transform: uppercase;
+  color: black;
+  font-weight: 800;
+  padding: 16px 0;
+  font-size: 20px;
+  border-bottom: 2px solid #324fff;
+}
+
+.landing-bold-link:hover {
+  color: white;
+  background: black;
+}
+
+/* Large section headings with blue underline */
+
+.landing-section-heading {
+  font-size: 45px;
+  border-bottom: 2px solid #324fff;
+  padding: 24px 0;
+  margin-bottom: 55px;
+  font-weight: 500;
+}
+
+/* Example code snippets */
+
+.landing-example {
+  background: white;
+}
+
+.landing-example h4 {
+  background: #324fff;
+  color: white;
+  margin: 0;
+  font-size: 31px;
+  font-weight: 500;
+  padding: 22px 45px;
+  height: 42px;
+}
+
+.landing-example .CodeMirror {
+  margin: 0;
+  padding: 52px 44px;
+  border: none;
+}
+
+.landing-example .divider {
+  border-bottom: 2px solid #dfdfdf;
+  margin: 0 44px;
+  height: 0;
+}
+
+/* TODO(aomarks) Move these syntax highlighting styles to a common location, and
+   refactor to use custom properties. The issue is that we import the raw
+   CodeMirror default stylesheet, instead of the Playground-upgraded one that
+   adds custom properties, so custom properties don't apply to static rendering
+   yet. */
+
+.CodeMirror {
+  font-size: 16px !important;
+}
+.CodeMirror .cm-comment {
+  color: #9e9e9e;
+}
+.CodeMirror .cm-def {
+  color: #324fff;
+}
+.CodeMirror .cm-attribute {
+  color: #324fff;
+}
+.CodeMirror .cm-atom {
+  color: #945cf7;
+}
+.CodeMirror .cm-property {
+  color: #324fff;
+}
+.CodeMirror .cm-type {
+  color: #16be84;
+}
+.CodeMirror .cm-variable-3 {
+  color: #16be84;
+}
+.CodeMirror .cm-string {
+  color: #ff4914;
+}
+.CodeMirror .cm-string-2 {
+  color: #e39604;
+}
+.CodeMirror .cm-keyword {
+  color: #945cf7;
+}
+.CodeMirror .cm-tag {
+  color: #16be84;
+}
+.CodeMirror .cm-number {
+  color: #16be84;
+}

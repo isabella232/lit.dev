@@ -1,14 +1,38 @@
 /* Variables */
 
 body {
-  --lhs-nav-width: 240px;
-  --rhs-toc-width: 240px;
+  --lhs-nav-width: 320px;
+  --rhs-toc-width: 350px;
+  --docs-total-max-width: unset;
+  --docs-content-max-width: 1400px;
+  --docs-justify-content: center;
+  --docs-outside-background: rgb(0, 0, 0);
+  --docs-outside-flex: 0 0 0;
+  --speckles-opacity: 20%;
+  --header-footer-max-width: 1800px;
+}
+
+.speckles {
+  opacity: var(--speckles-opacity);
+}
+
+.colorblock {
+  background: var(--docs-outside-background);
+  flex: var(--docs-outside-flex);
+}
+
+.colorblockend {
+  background: var(--docs-outside-background);
+  flex: var(--docs-outside-flex);
+  order: 2;
 }
 
 /* LHS nav */
 
 main {
   display: flex;
+  justify-content: var(--docs-justify-content);
+  max-width: var(--docs-total-max-width);
 }
 
 .lhs-nav-wrapper {
@@ -23,6 +47,48 @@ main {
   overflow-y: auto;
   padding: 20px 20px 0 0;
   box-sizing: border-box;
+  background: #454545;
+  color: #9e9e9e;
+}
+
+.lhs-nav .active {
+  color: white;
+}
+
+.lhs-nav ol {
+  padding-left: 40px;
+}
+
+.lhs-nav ol ol {
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.lhs-nav ol ol li {
+  padding-left: 12px;
+}
+
+.lhs-nav li {
+  font-size: 22px;
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.lhs-nav a {
+  color: inherit;
+}
+
+.lhs-nav a:hover {
+  color: #00e8ff;
+}
+
+.lhs-nav ol ol li {
+  font-size: 14.64px;
+}
+
+.lhs-nav li li.active {
+  list-style: '♦';
 }
 
 /* Article */
@@ -31,8 +97,10 @@ article {
   flex-grow: 1;
   overflow-x: auto;
   padding: 32px 24px;
-  line-height: 1.5em;
-  font-size: 16px;
+  line-height: 1.8em;
+  font-size: 20px;
+  max-width: var(--docs-content-max-width);
+  margin-left: 50px;
 }
 
 article [id] {
@@ -48,6 +116,19 @@ article > h1:first-of-type {
   margin-top: 0;
 }
 
+article h1 {
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid #3456f5;
+  font-size: 45px;
+}
+
+article h2 {
+  color: #324fff;
+  font-weight: bold;
+  font-size: 34px;
+}
+
 article p {
   margin-block-start: 1.5em;
   margin-block-end: 1.5em;
@@ -56,6 +137,7 @@ article p {
 /* Alert styles for notes and warnings */
 
 .alert {
+  display: none;
   position: relative;
   margin: 24px 0;
   padding: 1px 20px 1px 56px;
@@ -106,65 +188,71 @@ article p {
      natural order to TOC > article, then change it here with CSS order, the
      flash goes away. This order is probably better for screen-readers anyway.
      */
-  order: 2;
+  order: 1;
+  margin-left: 50px;
 }
 
 .rhs-toc {
   position: sticky;
-  top: calc(var(--header-height) + 60px);
+  top: calc(var(--header-height) + 57px);
   height: calc(100vh - var(--header-height) - 60px);
   overflow-y: auto;
-  font-size: 12px;
 }
 
-.rhs-toc > h2 {
-  color: #4a4a4a;
-  margin-bottom: 20px;
+.rhs-toc h2 {
+  font-size: 20px;
+  font-weight: 700;
 }
 
-/* First level */
-.rhs-toc > div > ol {
-  padding-left: 0;
-  list-style: none;
+.rhs-toc li {
+  margin-top: 14px;
+  font-weight: 500;
 }
 
-/* Second level */
-.rhs-toc > div > ol > li > ol {
-  padding-left: 0;
-  list-style: none;
+.rhs-toc ol {
+  list-style-type: none;
+  padding-left: 30px;
 }
 
-.rhs-toc a {
-  padding: 4px 0;
-  display: block;
+.rhs-toc ol ol li {
+  margin-top: 14px;
 }
 
-.rhs-toc > div > ol > li > a {
-  padding-left: 12px;
-}
-
-.rhs-toc > div > ol > li > ol > li > a {
-  padding-left: 24px;
+.rhs-toc ol ol {
+  padding-left: 25px;
 }
 
 .rhs-toc a {
-  color: #383838;
-  border-left: 3px solid #eee;
+  color: #898989;
+  font-size: 18px;
 }
 
+.rhs-toc ol ol a {
+  font-size: 14px;
+}
+
+.rhs-toc a.active,
 .rhs-toc a:hover {
   color: black;
-  border-color: #9a9a9a;
 }
 
-.rhs-toc a.active {
-  border-color: #1879cd;
-  font-weight: 500;
+.rhs-toc a.active:before {
+  content: '♦';
+  color: #324fff;
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+  line-height: 25px;
+  pointer-events: none;
+}
+
+.rhs-toc ol ol a.active:before {
+  line-height: 16px;
 }
 
 /* Slightly narrow layout (hide RHS TOC) */
 
-@media (max-width: 899px) {
+@media (max-width: 1500px) {
   .inline-toc {
     display: initial;
   }
@@ -180,8 +268,15 @@ article p {
 
 /* Very narrow layout (hide LHS nav) */
 
-@media (max-width: 699px) {
+@media (max-width: 899px) {
   .lhs-nav-wrapper {
     display: none;
   }
+  article {
+    margin-left: 0;
+  }
+}
+
+footer {
+  border-top: 1px solid #324fff;
 }
