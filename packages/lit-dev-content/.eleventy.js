@@ -67,7 +67,7 @@ ${content}
 </div>`;
   });
 
-  const md = markdownIt({html: true, breaks: true, linkify: true})
+  const md = markdownIt({html: true, breaks: false, linkify: true})
     .use(markdownItAttrs)
     .use(markdownItAnchor, {slugify, permalink: false});
   eleventyConfig.setLibrary('md', md);

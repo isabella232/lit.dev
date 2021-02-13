@@ -1,49 +1,44 @@
-{% extends 'default.html' %}
+{% extends 'default.html' %} {% block head %} {% inlinecss "docs.css" %} {% if
+dev %}
+<script type="module" src="{{site.baseurl}}/lib/docs.js"></script>
+{% else %}
+<script type="module">
+  {% include 'js/docs.js' %}
+</script>
+{% endif %} {% endblock %} {% block drawer %} {% include 'eleventy-nav.html' %}
+{% endblock %} {% block content %}
+<div class="colorblock">
+  <div class="speckles"></div>
+</div>
+<div class="lhs-nav-wrapper">
+  <nav class="lhs-nav">
+    <ol>
+      {% include 'eleventy-nav.html' %}
+    </ol>
+  </nav>
+</div>
 
-{% block head %}
-  {% inlinecss "guide.css" %}
-  {% if dev %}
-    <script type="module" src="{{site.baseurl}}/lib/guide.js"></script>
-  {% else %}
-    <script type="module">{% include 'js/guide.js' %}</script>
-  {% endif %}
-{% endblock %}
+<div class="rhs-toc-wrapper">
+  <nav class="rhs-toc">
+    <h2>Contents</h2>
+    {{ content | toc | safe }}
+  </nav>
+</div>
 
-{% block drawer %}
-  {% include 'eleventy-nav.html' %}
-{% endblock %}
+<article>
+  <h1>{{ title }}</h1>
 
-{% block content %}
-  <div class="colorblock">
-    <div class="speckles"></div>
-  </div>
-  <div class="lhs-nav-wrapper">
-    <nav class="lhs-nav">
-      <ol>{% include 'eleventy-nav.html' %}</ol>
-    </nav>
-  </div>
-
-  <div class="rhs-toc-wrapper">
-    <nav class="rhs-toc">
-      <h2>Contents</h2>
+  <nav class="inline-toc">
+    <details>
+      <summary><h2>Contents</h2></summary>
       {{ content | toc | safe }}
-    </nav>
-  </div>
+    </details>
+  </nav>
 
-  <article>
-    <h1>{{ title }}</h1>
+  {{ content | safe }}
+</article>
 
-    <nav class="inline-toc">
-      <details>
-        <summary><h2>Contents</h2></summary>
-        {{ content | toc | safe }}
-      </details>
-    </nav>
-
-    {{ content | safe }}
-  </article>
-
-  <div class="colorblockend">
-    <div class="speckles"></div>
-  </div>
+<div class="colorblockend">
+  <div class="speckles"></div>
+</div>
 {% endblock %}

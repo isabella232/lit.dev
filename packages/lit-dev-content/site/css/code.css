@@ -1,24 +1,31 @@
 body {
   --playground-code-font-family: 'Roboto Mono', monospace;
-  --playground-code-font-size: 13px;
-  --playground-bar-height: 54px;
+  --playground-code-font-size: 0.8em;
+  --playground-highlight-color: #324fff;
 }
 
 .CodeMirror,
 playground-file-editor,
 playground-preview {
-  border: 1px solid #dedede;
-  margin-bottom: 16px;
+  border: 1px solid #9e9e9e;
+  margin-bottom: 0.64em;
+  border-radius: none;
 }
 
 playground-ide {
-  border: 1px solid #ccc;
+  border: 1px solid #9e9e9e;
   box-sizing: border-box;
+}
+
+pre.highlight {
+  border: 1px solid #9e9e9e;
+  padding: 1em;
+  font-size: 0.8em;
 }
 
 playground-ide:not(:defined) {
   display: block;
-  height: 350px;
+  height: 14em;
 }
 
 playground-file-editor {
@@ -27,14 +34,14 @@ playground-file-editor {
 
 litdev-example:not(:defined) {
   display: block;
-  border: 1px solid #ccc;
+  border: 1px solid #9e9e9e;
 }
 
 .CodeMirror {
   font-family: 'Roboto Mono', monospace !important;
-  font-size: 18px !important;
-  padding: 12px;
-  /* The default CodeMirror stylesheet fixes height to 300px. */
+  font-size: var(--playground-code-font-size) !important;
+  padding: 0.48em;
+  /* The default CodeMirror stylesheet fixes height to 12em. */
   height: unset !important;
 }
 
@@ -44,7 +51,7 @@ litdev-example:not(:defined) {
      on that stylesheet, so we include them here too so that sizing is already
      correct, and it's just colors that load in. */
   font-family: inherit;
-  padding: 0 4px;
+  padding: 0 0.16em;
   margin: 0;
 }
 
@@ -52,4 +59,58 @@ litdev-example:not(:defined) {
   /* Higher contrast red. TODO(aomarks) Replace with entirely new CodeMirror
      theme, that is both nicer looking and satisfies a11y contrast metrics. */
   color: #b30000 !important;
+}
+
+/* TODO(aomarks) Move these syntax highlighting styles to a common location, and
+   refactor to use custom properties. The issue is that we import the raw
+   CodeMirror default stylesheet, instead of the Playground-upgraded one that
+   adds custom properties, so custom properties don't apply to static rendering
+   yet. */
+body {
+  --playground-code-comment-color: #9e9e9e;
+  --playground-code-def-color: #324fff;
+  --playground-code-attribute-color: #324fff;
+  --playground-code-atom-color: #945cf7;
+  --playground-code-property-color: #324fff;
+  --playground-code-type-color: #16be84;
+  --playground-code-variable-3-color: #16be84;
+  --playground-code-string-color: #ff4914;
+  --playground-code-string-2-color: #e39604;
+  --playground-code-keyword-color: #945cf7;
+  --playground-code-tag-color: #16be84;
+  --playground-code-number-color: #16be84;
+}
+
+.CodeMirror .cm-comment {
+  color: var(--playground-code-comment-color) !important;
+}
+.CodeMirror .cm-def {
+  color: var(--playground-code-def-color) !important;
+}
+.CodeMirror .cm-attribute {
+  color: var(--playground-code-attribute-color) !important;
+}
+.CodeMirror .cm-atom {
+  color: var(--playground-code-atom-color) !important;
+}
+.CodeMirror .cm-property {
+  color: var(--playground-code-property-color) !important;
+}
+.CodeMirror .cm-type {
+  color: var(--playground-code-type-color) !important;
+}
+.CodeMirror .cm-variable-3 {
+  color: var(--playground-code-variable-3-color) !important;
+}
+.CodeMirror .cm-string {
+  color: var(--playground-code-string-color) !important;
+}
+.CodeMirror .cm-keyword {
+  color: var(--playground-code-keyword-color) !important;
+}
+.CodeMirror .cm-tag {
+  color: var(--playground-code-tag-color) !important;
+}
+.CodeMirror .cm-number {
+  color: var(--playground-code-number-color) !important;
 }

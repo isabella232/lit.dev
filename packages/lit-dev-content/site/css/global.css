@@ -6,23 +6,31 @@
 
 /* General */
 
+html {
+  /**
+   * This font-size value controls the scale of the entire application. A
+   * font-size of 25px corresponds to the scale of the original mocks.
+   */
+  font-size: 18px;
+
+  --header-footer-max-width: var(--main-max-width);
+  --header-footer-justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
-  --toc-width: 300px;
-  --main-max-width: auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: 400;
+  --toc-width: 12em;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 1.28em;
 }
 
 a {
@@ -48,11 +56,11 @@ main {
 /* Navigation (can either be in drawer or LHS column) */
 
 .site-nav {
-  font-size: 14px;
+  font-size: 1em;
 }
 
 .site-nav > ol {
-  padding-left: 29px;
+  padding-left: 1.16em;
 }
 
 .site-nav li {
@@ -61,21 +69,21 @@ main {
 
 .site-nav .section-head {
   color: black;
-  padding: 2px 14px;
-  margin-left: -17px;
+  padding: 0.08em 0.56em;
+  margin-left: -0.68em;
   font-weight: 500;
 }
 
 .site-nav a {
   display: block;
   color: inherit;
-  margin-bottom: 3px;
-  padding: 3px 12px;
+  margin-bottom: 0.12em;
+  padding: 0.12em 0.48em;
 }
 
 .site-nav ol ol {
-  padding-left: 8px;
-  margin: 8px 0 12px 0;
+  padding-left: 0.32em;
+  margin: 0.32em 0 0.48em 0;
 }
 
 /* Don't render drawer slotted children before it upgrades. */
@@ -84,7 +92,7 @@ mwc-drawer:not(:defined) {
 }
 
 mwc-drawer .site-nav > ol {
-  padding: 0 24px;
+  padding: 0 0.96em;
 }
 
 mwc-icon-button:not(:defined) {
@@ -97,9 +105,9 @@ mwc-icon-button-toggle:not(:defined) {
 /* The first section in the narrow-layout drawer is top-level site pages, and
    underneath is e.g. the guide sub-pages. Visually separate these a bit. */
 mwc-drawer .site-nav > ol > li:nth-child(2) {
-  margin-top: 18px;
-  border-top: 1px solid #ccc;
-  padding-top: 24px;
+  margin-top: 0.72em;
+  border-top: 0.04em solid #ccc;
+  padding-top: 0.96em;
 }
 
 /* "Speckly" texture applied on top of some backgrounds */

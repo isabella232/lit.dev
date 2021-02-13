@@ -1,15 +1,16 @@
 /* Variables */
 
 body {
-  --lhs-nav-width: 320px;
-  --rhs-toc-width: 350px;
+  --lhs-nav-width: 9em;
+  --rhs-toc-width: 14em;
   --docs-total-max-width: unset;
-  --docs-content-max-width: 1400px;
-  --docs-justify-content: center;
+  --docs-content-max-width: 55em;
+  --docs-justify-content: flex-start;
   --docs-outside-background: rgb(0, 0, 0);
   --docs-outside-flex: 0 0 0;
   --speckles-opacity: 20%;
-  --header-footer-max-width: 1800px;
+  --header-footer-max-width: unset;
+  --header-footer-justify-content: center;
 }
 
 .speckles {
@@ -38,6 +39,8 @@ main {
 .lhs-nav-wrapper {
   width: var(--lhs-nav-width);
   flex-shrink: 0;
+  /* Scaled up vs spec. */
+  font-size: 1.8em;
 }
 
 .lhs-nav {
@@ -45,10 +48,10 @@ main {
   top: var(--header-height);
   height: calc(100vh - var(--header-height));
   overflow-y: auto;
-  padding: 20px 20px 0 0;
   box-sizing: border-box;
   background: #454545;
   color: #9e9e9e;
+  padding: 1em 0.5em;
 }
 
 .lhs-nav .active {
@@ -56,23 +59,24 @@ main {
 }
 
 .lhs-nav ol {
-  padding-left: 40px;
+  padding: 0;
+  margin: 0;
 }
 
 .lhs-nav ol ol {
-  padding-top: 10px;
-  padding-left: 10px;
-  margin-bottom: 20px;
+  padding-top: 0.2em;
+  padding-left: 0.6em;
+  margin-bottom: 0.4em;
 }
 
 .lhs-nav ol ol li {
-  padding-left: 12px;
+  padding-left: 0.48em;
 }
 
 .lhs-nav li {
-  font-size: 22px;
+  font-size: 0.88em;
   list-style: none;
-  margin-bottom: 8px;
+  margin-bottom: 0.32em;
 }
 
 .lhs-nav a {
@@ -80,15 +84,19 @@ main {
 }
 
 .lhs-nav a:hover {
-  color: #00e8ff;
+  color: rgb(31, 136, 255);
 }
 
 .lhs-nav ol ol li {
-  font-size: 14.64px;
+  font-size: 0.5856em;
 }
 
 .lhs-nav li li.active {
-  list-style: '♦';
+  list-style: '◆';
+}
+
+.lhs-nav .section-head {
+  font-size: 0.7em;
 }
 
 /* Article */
@@ -96,18 +104,16 @@ main {
 article {
   flex-grow: 1;
   overflow-x: auto;
-  padding: 32px 24px;
-  line-height: 1.8em;
-  font-size: 20px;
+  padding: 1.28em 3em 1.28em 1em;
   max-width: var(--docs-content-max-width);
-  margin-left: 50px;
+  margin-left: 2em;
 }
 
 article [id] {
   /* Adjust scroll margins of all article headings to account for sticky header.
      Otherwise, we'll scroll headings underneath the header. Add a little bit
      more too, for some extra breathing room. */
-  scroll-margin-top: calc(var(--header-height) + 12px);
+  scroll-margin-top: calc(var(--header-height) + 0.48em);
 }
 
 article > h1:first-of-type {
@@ -117,39 +123,41 @@ article > h1:first-of-type {
 }
 
 article h1 {
-  padding-bottom: 32px;
-  margin-bottom: 32px;
-  border-bottom: 2px solid #3456f5;
-  font-size: 45px;
+  padding-bottom: 0.5em;
+  margin-bottom: 1.28em;
+  border-bottom: 0.08em solid #3456f5;
+  font-size: 1.8em;
 }
 
 article h2 {
   color: #324fff;
-  font-weight: bold;
-  font-size: 34px;
+  font-size: 1.36em;
 }
 
 article p {
   margin-block-start: 1.5em;
   margin-block-end: 1.5em;
+  font-size: 1em;
 }
 
 /* Alert styles for notes and warnings */
 
 .alert {
-  display: none;
   position: relative;
-  margin: 24px 0;
-  padding: 1px 20px 1px 56px;
-  box-shadow: 0 0 2px #ccc;
-  border-radius: 2px;
-  box-sizing: border-box;
+  margin: 1em 0;
+  padding-left: 24px;
+  border: 1px solid #9e9e9e;
+}
+
+.alert > p {
+  margin: 0;
+  padding: 1em 1em 1em 2em;
 }
 
 .alert::before {
   position: absolute;
-  top: 17px;
-  left: 17px;
+  top: 1em;
+  left: 1em;
 }
 
 .alert.alert-info::before {
@@ -160,8 +168,8 @@ article p {
   content: url(/images/alerts/warning.svg);
 }
 
-.alert.alert-todo {
-  box-shadow: 0 0 2px #c00;
+.alert-todo {
+  display: none;
 }
 
 .alert.alert-todo h3 {
@@ -189,46 +197,42 @@ article p {
      flash goes away. This order is probably better for screen-readers anyway.
      */
   order: 1;
-  margin-left: 50px;
+  padding-right: 1em;
 }
 
 .rhs-toc {
   position: sticky;
-  top: calc(var(--header-height) + 57px);
-  height: calc(100vh - var(--header-height) - 60px);
+  top: calc(var(--header-height) + 2.28em);
+  height: calc(100vh - var(--header-height) - 2.4em);
   overflow-y: auto;
 }
 
 .rhs-toc h2 {
-  font-size: 20px;
+  font-size: 0.8em;
   font-weight: 700;
 }
 
 .rhs-toc li {
-  margin-top: 14px;
+  margin-top: 0.56em;
   font-weight: 500;
 }
 
 .rhs-toc ol {
   list-style-type: none;
-  padding-left: 30px;
+  padding-left: 1.2em;
 }
 
 .rhs-toc ol ol li {
-  margin-top: 14px;
+  margin-top: 0.56em;
 }
 
 .rhs-toc ol ol {
-  padding-left: 25px;
+  padding-left: 1em;
 }
 
 .rhs-toc a {
   color: #898989;
-  font-size: 18px;
-}
-
-.rhs-toc ol ol a {
-  font-size: 14px;
+  font-size: 0.8em;
 }
 
 .rhs-toc a.active,
@@ -237,22 +241,18 @@ article p {
 }
 
 .rhs-toc a.active:before {
-  content: '♦';
+  content: '◆';
   color: #324fff;
   position: absolute;
   left: 0;
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 0.8em;
+  line-height: 2em;
   pointer-events: none;
-}
-
-.rhs-toc ol ol a.active:before {
-  line-height: 16px;
 }
 
 /* Slightly narrow layout (hide RHS TOC) */
 
-@media (max-width: 1500px) {
+@media (max-width: 1280px) {
   .inline-toc {
     display: initial;
   }
@@ -268,7 +268,7 @@ article p {
 
 /* Very narrow layout (hide LHS nav) */
 
-@media (max-width: 899px) {
+@media (max-width: 800px) {
   .lhs-nav-wrapper {
     display: none;
   }
@@ -278,5 +278,13 @@ article p {
 }
 
 footer {
-  border-top: 1px solid #324fff;
+  border-top: 0.04em solid #324fff;
+}
+
+code {
+  background-color: #efefef;
+}
+
+.CodeMirror {
+  padding: 1em;
 }

@@ -1,7 +1,5 @@
 body {
-  /* IMPORTANT: Keep this height synced with the intersection observer margin in
-     landing.js */
-  --header-height: 86px;
+  --header-height: 3.44rem;
 }
 
 header {
@@ -13,6 +11,7 @@ header {
   background: #f4f4f4;
   box-sizing: border-box;
   display: flex;
+  justify-content: var(--header-footer-justify-content);
 }
 
 header .menu-button-and-logo {
@@ -24,40 +23,38 @@ header .menu-button-and-logo {
 header > nav {
   width: 100%;
   max-width: var(--header-footer-max-width);
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* Scale top nav beyond original specs. */
+  font-size: 1.3em;
+  padding-right: 2.16em;
 }
 
 header .logo {
-  margin-left: 40px;
+  margin-left: 1.6em;
 }
 
 header .logo img {
-  margin-right: 12px;
+  margin-right: 0.48em;
+  height: 1.53em;
 }
 
 header .top-nav {
-  height: 100%;
-  display: flex;
   list-style: none;
-  padding-left: 0;
   margin: 0;
-  margin-right: 40px;
+  padding: 0;
 }
 
 header .top-nav li {
-  height: 100%;
+  display: inline-flex;
 }
 
 header .top-nav a {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 0.72em;
+  padding: 0.4em;
+  margin: 0 0.4em;
 }
 
 header a {
@@ -73,7 +70,7 @@ header .top-nav .active a {
 }
 
 header .icon {
-  padding: 12px;
+  padding: 0.48em;
   display: flex;
 }
 
@@ -81,21 +78,25 @@ header .menu-button {
   display: none;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 1000px) {
   header .menu-button {
     display: flex;
   }
 
   /* Eliminate sizing FOUC before menu button upgrades. */
   header mwc-icon-button:not(:defined) {
-    padding: 12px;
+    padding: 0.48em;
   }
 
   header .logo {
-    margin-left: 10px;
+    margin-left: 0.4em;
   }
 
   header .top-nav {
     display: none;
+  }
+
+  header nav {
+    padding: 0 0.25em;
   }
 }
