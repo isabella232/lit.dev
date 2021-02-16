@@ -5,7 +5,7 @@ body {
   --rhs-toc-width: 14em;
   --docs-total-max-width: unset;
   --docs-content-max-width: 50em;
-  --docs-justify-content: flex-start;
+  --docs-justify-content: center;
   --docs-outside-background: rgb(0, 0, 0);
   --docs-outside-flex: 0 0 0;
   --speckles-opacity: 20%;
@@ -37,8 +37,8 @@ main {
 }
 
 .lhs-nav-wrapper {
-  width: var(--lhs-nav-width);
-  flex-shrink: 0;
+  /* width: var(--lhs-nav-width); */
+  /* flex-shrink: 0; */
   /* Scaled up vs spec. */
   font-size: 1.7em;
 }
@@ -47,15 +47,15 @@ main {
   position: sticky;
   top: var(--header-height);
   height: calc(100vh - var(--header-height));
-  overflow-y: auto;
+  overflow-y: hidden;
   box-sizing: border-box;
-  background: #454545;
-  color: #9e9e9e;
+  /* background: #454545; */
+  /* color: #9e9e9e; */
   padding: 1em 1em 1em 1em;
 }
 
 .lhs-nav .active {
-  color: white;
+  /* color: white; */
 }
 
 .lhs-nav ol {
@@ -93,6 +93,7 @@ main {
 
 .lhs-nav li li.active {
   list-style: '◆';
+  font-weight: bold;
 }
 
 .lhs-nav .section-head {
@@ -102,7 +103,7 @@ main {
 /* Article */
 
 article {
-  flex-grow: 1;
+  flex: 1;
   overflow-x: auto;
   padding: 1.28em 3em 1.28em 1em;
   max-width: var(--docs-content-max-width);
