@@ -109,7 +109,19 @@ article {
   margin-left: 2em;
   font-size: 0.88889em;
   line-height: 1.75;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h4 {
+  color: #6a6a6a;
+  font-weight: 600;
 }
 
 .content {
