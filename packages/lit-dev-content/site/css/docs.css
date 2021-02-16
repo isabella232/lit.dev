@@ -107,9 +107,15 @@ article {
   padding: 1.28em 3em 1.28em 1em;
   max-width: var(--docs-content-max-width);
   margin-left: 2em;
-  font-size: 16px;
+  font-size: 0.88889em;
   line-height: 1.75;
   font-family: Arial, sans-serif;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 article [id] {

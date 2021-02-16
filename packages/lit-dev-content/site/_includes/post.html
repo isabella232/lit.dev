@@ -14,9 +14,6 @@ dev %}
 
 {% endblock %} {% block drawer %} {% include 'eleventy-nav.html' %} {% endblock
 %} {% block content %}
-<div class="colorblock">
-  <div class="speckles"></div>
-</div>
 <div class="lhs-nav-wrapper">
   <nav class="lhs-nav">
     <ol>
@@ -25,27 +22,25 @@ dev %}
   </nav>
 </div>
 
-<div class="rhs-toc-wrapper">
-  <nav class="rhs-toc">
-    <h2>Contents</h2>
-    {{ content | toc | safe }}
-  </nav>
-</div>
-
-<article>
-  <h1>{{ title }}</h1>
-
-  <nav class="inline-toc">
-    <details>
-      <summary><h2>Contents</h2></summary>
+<div class="content">
+  <div class="rhs-toc-wrapper">
+    <nav class="rhs-toc">
+      <h2>Contents</h2>
       {{ content | toc | safe }}
-    </details>
-  </nav>
+    </nav>
+  </div>
 
-  {{ content | safe }}
-</article>
+  <article>
+    <h1>{{ title }}</h1>
 
-<div class="colorblockend">
-  <div class="speckles"></div>
+    <nav class="inline-toc">
+      <details>
+        <summary><h2>Contents</h2></summary>
+        {{ content | toc | safe }}
+      </details>
+    </nav>
+
+    {{ content | safe }}
+  </article>
 </div>
 {% endblock %}

@@ -14,7 +14,7 @@ This is placeholder content, need to decide what exactly we want to say here.
 
 At its core, Lit is two small and fast libraries that help you build web components. lit-html - a declarative template system that leads the pack in size, speed, and expressiveness, and LitElement - a web component base class that combines lit-html with boilerplate-killing reactive state, scoped styles, and a flexible rendering lifecycle.
 
-Lit is a collection of libraries and tools that help you build web components and d esign systems.
+Lit is a collection of libraries and tools that help you build web components and design systems.
 
 Lit's main library is lit-element, which provides the LitElement base class and several utilities for writing declarative, reactive, and encapsulated web components.
 
